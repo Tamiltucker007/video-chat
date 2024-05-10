@@ -100,6 +100,7 @@
 </template>
 
 <script>
+import Echo from "laravel-echo";
 import Peer from "simple-peer";
 import { getPermissions } from "../helpers";
 export default {
@@ -130,7 +131,6 @@ export default {
       },
     };
   },
-
   mounted() {
     this.initializeChannel(); // this initializes laravel echo
     this.initializeCallListeners(); // subscribes to video presence channel and listens to video events
@@ -164,9 +164,11 @@ export default {
     },
   },
   methods: {
-    initializeChannel() {
-      this.videoCallParams.channel = window.Echo.join("presence-video-channel");
-    },
+      initializeChannel() {
+        console.log(window.Echo);
+         this.videoCallParams.channel = window.Echo.join("presence-video-channel");
+         console.log(this.videoCallParams.channel);
+       },
 
     getMediaPermission() {
       return getPermissions()

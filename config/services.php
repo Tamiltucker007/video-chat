@@ -30,4 +30,17 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'pusher' => [
+        'app_id' => env('PUSHER_APP_ID'),
+        'key' => env('PUSHER_APP_KEY'),
+        'secret' => env('PUSHER_APP_SECRET'),
+        'cluster' => env('PUSHER_APP_CLUSTER'),
+    ],
+
+    'turn_server' => [
+        'url' => env('TURN_SERVER_URL'),
+        'username' => env('TURN_SERVER_USERNAME'),
+        'password' => env('TURN_SERVER_CREDENTIAL'),
+    ],
+
 ];
