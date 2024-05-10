@@ -100,7 +100,7 @@
 </template>
 
 <script>
-import Echo from "laravel-echo";
+import Echo from '@/bootstrap';
 import Peer from "simple-peer";
 import { getPermissions } from "../helpers";
 export default {
@@ -165,9 +165,8 @@ export default {
   },
   methods: {
       initializeChannel() {
-        console.log(window.Echo);
+        console.log(Echo);
          this.videoCallParams.channel = window.Echo.join("presence-video-channel");
-         console.log(this.videoCallParams.channel);
        },
 
     getMediaPermission() {
