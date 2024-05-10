@@ -811,9 +811,13 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       if (!this.mutedAudio) this.toggleMuteAudio();
       this.stopStreamedVideo(this.$refs.userVideo);
       if (this.authuserid === this.videoCallParams.caller) {
-        this.videoCallParams.peer1.destroy();
+        if (this.videoCallParams.peer1) {
+          this.videoCallParams.peer1.destroy();
+        }
       } else {
-        this.videoCallParams.peer2.destroy();
+        if (this.videoCallParams.peer2) {
+          this.videoCallParams.peer2.destroy();
+        }
       }
       this.videoCallParams.channel.pusher.channels.channels["presence-presence-video-channel"].disconnect();
       setTimeout(function () {
